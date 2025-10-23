@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../../api/axios";
 import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from "recharts";
 
-const COLORS = ["#3b82f6", "#f59e0b", "#10b981"]; // Pending - blue, Ongoing - orange, Completed - green
+const COLORS = ["#3b82f6", "#f59e0b", "#10b981"]; 
 
 const DevDashboard = () => {
   const [tasks, setTasks] = useState([]);
