@@ -11,10 +11,8 @@ const AdminLayout = () => {
 
   return (
     <div className="flex min-h-screen">
-      {/* Sidebar */}
       <Sidebar menuItems={menuItems} />
 
-      {/* Main content */}
       <div className="ml-64 flex-1 flex flex-col bg-gray-50 min-h-screen">
         <Navbar />
         <main className="p-6 flex-1 overflow-y-auto">
