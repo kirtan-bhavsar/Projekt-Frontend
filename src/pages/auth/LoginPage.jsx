@@ -38,7 +38,6 @@ function LoginPage() {
           Projekt Login
         </h2>
 
-        {/* 🔹 Role Selection Tabs */}
         <div className="flex justify-between mb-6 border-b border-gray-200">
           {["admin", "pm", "developer"].map((role) => (
             <button
@@ -56,7 +55,6 @@ function LoginPage() {
           ))}
         </div>
 
-        {/* 🔹 Login Fields */}
         <input
           type="email"
           placeholder="Email"
@@ -75,10 +73,8 @@ function LoginPage() {
           required
         />
 
-        {/* 🔹 Error Message */}
         {error && <p className="text-red-600 mb-3 text-center">{error}</p>}
 
-        {/* 🔹 Submit Button */}
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
