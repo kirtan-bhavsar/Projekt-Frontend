@@ -39,7 +39,6 @@ const PmTasks = () => {
 
     const movedTask = tasks[sourceCol][source.index];
 
-    // update local state
     const updatedSource = [...tasks[sourceCol]];
     updatedSource.splice(source.index, 1);
     const updatedDest = [...tasks[destCol]];
