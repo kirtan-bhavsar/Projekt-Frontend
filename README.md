@@ -1,25 +1,25 @@
-# Projekt — Frontend
+# 🎨 Projekt — Frontend
 
-**Projekt** is a role-based project & task management frontend built with React (Vite) and TailwindCSS.  
-This repository contains the UI layer that talks to the Projekt backend API.
-
----
-
-##  Tech Stack
-
-- **React** (Vite) — fast development + production builds  
-- **Tailwind CSS** — utility-first styling  
-- **Axios** — HTTP client for API communication  
-- **React Router** (v6) — routing  
-- **React Context API** — authentication & global state  
-- **@hello-pangea/dnd** — drag-and-drop Kanban (task board)  
-- **react-hot-toast** — toast notifications
+**Projekt Frontend** is the user interface layer of the **Projekt** application — a role-based project and task management system.  
+It connects seamlessly with the backend API to provide a responsive, secure, and intuitive experience for Admins, Project Managers, and Developers.
 
 ---
 
-##  Roles
+## ⚙️ Tech Stack
 
-The app supports three user roles with distinct capabilities:
+- ⚛️ **React (Vite)** — modern, fast, and modular frontend framework  
+- 🎨 **Tailwind CSS** — utility-first styling for responsive UI  
+- 🔁 **Axios** — HTTP client for API communication  
+- 🧭 **React Router (v6)** — route-based navigation  
+- 🔐 **React Context API** — authentication and state management  
+- 🧩 **@hello-pangea/dnd** — drag-and-drop Kanban interaction  
+- 🔔 **react-hot-toast** — user feedback & alerts
+
+---
+
+## 👥 Roles
+
+The frontend supports three distinct user roles with tailored interfaces:
 
 - **Admin**  
 - **Project Manager (PM)**  
@@ -27,36 +27,52 @@ The app supports three user roles with distinct capabilities:
 
 ---
 
-##  What each role can do
+## 🧰 Role-Based Capabilities
 
-### 1) Admin
-- Create, edit and delete **projects**.
-- Create **Project Manager** and **Developer** accounts.
-- Assign a Project Manager to a project.
-- View all ongoing and completed projects in an overview.
-- Access user management UI to manage PM and Developer accounts.
+### 👑 1) Admin
 
-### 2) Project Manager (PM)
-- View projects assigned to them and open project details.
-- Create tasks under their projects and assign them to Developers or themselves.
-- Edit task metadata (title, due date, assignee) with restrictions:
-  - Cannot reassign a task if it is already `ongoing`.
-  - Cannot modify a `completed` task.
-- Delete tasks only if they are `pending` or `completed` (cannot delete `ongoing` tasks).
-- Use the Kanban board (drag & drop) to move tasks through statuses:
-  - `pending` → `ongoing` → `completed` (transitions enforced).
-- See quick visual indicators for overdue tasks and status breakdowns.
-
-### 3) Developer
-- View projects and tasks that are assigned to them.
-- Update their assigned task status via the Kanban board (drag & drop).
-- Edit their own task’s title or due date (restrictions apply: e.g., cannot reassign).
-- Track overdue tasks and progress on personal task lists.
+**Primary Responsibility:** Oversee and manage projects and user hierarchy.  
+**Capabilities:**
+- Create, edit, and delete **projects**.  
+- Create and manage **Project Manager** and **Developer** accounts.  
+- Assign PMs to projects.  
+- Monitor overall project statuses and team progress.  
+- Manage users through a clean, accessible dashboard.
 
 ---
 
-## Thank you
+### 👨‍💼 2) Project Manager (PM)
 
-Thanks for checking out the Projekt frontend.  
+**Primary Responsibility:** Manage projects, tasks, and developers.  
+**Capabilities:**
+- View all **projects** assigned to them.  
+- Create and assign **tasks** to Developers or themselves.  
+- Edit task details — title, due date, assignee *(with restrictions)*:  
+  - Cannot reassign an **ongoing** task.  
+  - Cannot modify a **completed** task.  
+- Delete tasks only if they are **pending** or **completed**.  
+- Use the **Kanban board** for drag-and-drop status transitions:  
+  `pending → ongoing → completed` 
+- View overdue task indicators and project progress in real time.
+
+---
+
+### 👨‍💻 3) Developer
+
+**Primary Responsibility:** Execute and track assigned tasks.  
+**Capabilities:**
+- View all **assigned projects and tasks**.  
+- Update task progress via **Kanban drag-and-drop**.  
+- Edit task title or due date (limited access).  
+- Cannot delete or reassign tasks.  
+- View visual indicators for overdue and completed tasks.
+
+---
+
+## 🙏 Thank You
+
+Thanks for checking out the **Projekt Frontend**! 💻  
+This interface was designed for clarity, collaboration, and productivity across all roles.
+
 
 ---
