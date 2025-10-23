@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../../api/axios";
 import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from "recharts";
 
-const COLORS = ["#3b82f6", "#10b981"]; // ongoing - blue, completed - green
+const COLORS = ["#3b82f6", "#10b981"];
 
 const PMDashboard = () => {
   const [projects, setProjects] = useState([]);
