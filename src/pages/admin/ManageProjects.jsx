@@ -11,7 +11,6 @@ const ManageProjects = () => {
   const [editingId, setEditingId] = useState(null);
   const [editTitle, setEditTitle] = useState("");
 
-  // ✅ Fetch all projects
   const fetchProjects = async () => {
     try {
       const res = await api.get("/admin/projects");
@@ -21,7 +20,6 @@ const ManageProjects = () => {
     }
   };
 
-  // ✅ Fetch all PMs
   const fetchPMs = async () => {
     try {
       const res = await api.get("/admin/users");
@@ -36,7 +34,6 @@ const ManageProjects = () => {
     fetchPMs();
   }, []);
 
-  // ✅ Create a new project
   const handleCreateProject = async (e) => {
     e.preventDefault();
     try {
@@ -55,7 +52,6 @@ const ManageProjects = () => {
     }
   };
 
-  // ✅ Delete a project
   const handleDelete = async (id) => {
     if (confirm("Are you sure you want to delete this project?")) {
       try {
@@ -68,7 +64,6 @@ const ManageProjects = () => {
     }
   };
 
-  // ✅ Save Edited Title
   const handleSaveTitle = async (id) => {
     if (!editTitle.trim()) {
       toast.error("Title cannot be empty");
@@ -92,7 +87,6 @@ const ManageProjects = () => {
         <h1 className="text-3xl font-bold text-gray-700">Manage Projects</h1>
       </div>
 
-      {/* Create New Project Form */}
       <form
         onSubmit={handleCreateProject}
         className="bg-white p-6 rounded-lg shadow-md mb-6"
@@ -140,7 +134,6 @@ const ManageProjects = () => {
         </button>
       </form>
 
-      {/* Projects Table */}
       <div className="bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-xl font-semibold mb-4">All Projects</h2>
         {projects.length === 0 ? (
@@ -158,7 +151,6 @@ const ManageProjects = () => {
             <tbody>
               {projects.map((proj) => (
                 <tr key={proj._id} className="border-t hover:bg-gray-50">
-                  {/* ✅ Editable Title Field */}
                   <td className="p-3">
                     {editingId === proj._id ? (
                       <input
