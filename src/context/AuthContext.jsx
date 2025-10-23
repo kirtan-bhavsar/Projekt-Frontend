@@ -21,7 +21,6 @@ export const AuthProvider = ({ children }) => {
     fetchUser();
   }, []);
 
-  // 🔹 Updated login function to accept role
   const login = async (email, password, role) => {
     try {
       const { data } = await api.post("/auth/login", { email, password, role });
