@@ -9,9 +9,6 @@ const DevTasks = () => {
   const fetchTasks = async () => {
     try {
       const res = await api.get("/dev/tasks");
-      console.log(res);
-      console.log("res---fromDevTasks.jsx");
-      console.log("res---fromDevTasks.jsx");
       const allTasks = res.data.tasks;
 
       setTasks({
@@ -37,7 +34,6 @@ const DevTasks = () => {
 
     const movedTask = tasks[sourceCol][source.index];
 
-    // Update local state
     const updatedSource = [...tasks[sourceCol]];
     updatedSource.splice(source.index, 1);
     const updatedDest = [...tasks[destCol]];
