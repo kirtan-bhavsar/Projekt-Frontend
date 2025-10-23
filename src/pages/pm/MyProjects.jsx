@@ -8,10 +8,9 @@ const MyProjects = () => {
   const [tasks, setTasks] = useState({});
   const [newTask, setNewTask] = useState({});
   const [expandedProjects, setExpandedProjects] = useState({});
-  const [editingTask, setEditingTask] = useState(null); // 🟡 Track currently edited task
+  const [editingTask, setEditingTask] = useState(null); 
   const [editData, setEditData] = useState({ title: "", dueDate: "", assignedTo: "" });
 
-  // ✅ Fetch all PM projects
   const fetchProjects = async () => {
     try {
       const res = await api.get("/pm/projects");
@@ -21,7 +20,6 @@ const MyProjects = () => {
     }
   };
 
-  // ✅ Fetch developers + PM (for assigning)
   const fetchDevelopers = async () => {
     try {
       const res = await api.get("/pm/users");
@@ -31,7 +29,6 @@ const MyProjects = () => {
     }
   };
 
-  // ✅ Fetch tasks for a specific project
   const fetchTasks = async (projectId) => {
     try {
       const res = await api.get(`/pm/projects/${projectId}/tasks`);
@@ -46,7 +43,6 @@ const MyProjects = () => {
     fetchDevelopers();
   }, []);
 
-  // ✅ Create task
   const handleCreateTask = async (e, projectId) => {
     e.preventDefault();
     const taskData = newTask[projectId];
@@ -69,7 +65,6 @@ const MyProjects = () => {
     }
   };
 
-  // ✅ Delete task (only if not ongoing)
   const handleDeleteTask = async (taskId, projectId, status) => {
     if (status === "ongoing") {
       toast.error("Cannot delete an ongoing task");
@@ -87,7 +82,6 @@ const MyProjects = () => {
     }
   };
 
-  // ✅ Start editing task
   const handleEditClick = (task) => {
     setEditingTask(task._id);
     setEditData({
@@ -97,7 +91,6 @@ const MyProjects = () => {
     });
   };
 
-  // ✅ Save edited task
   const handleSaveEdit = async (taskId, projectId) => {
     try {
       await api.put(`/pm/tasks/${taskId}`, editData);
@@ -110,7 +103,6 @@ const MyProjects = () => {
     }
   };
 
-  // ✅ Toggle project expand/collapse
   const toggleExpand = (projectId) => {
     setExpandedProjects((prev) => ({
       ...prev,
@@ -124,12 +116,7 @@ const MyProjects = () => {
     <div>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-700">My Projects</h1>
-        {/* <button
-          onClick={fetchProjects}
-          className="bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300 text-sm"
-        >
-          🔄 Refresh
-        </button> */}
+      
       </div>
 
       {projects.map((proj) => (
@@ -137,7 +124,7 @@ const MyProjects = () => {
           key={proj._id}
           className="bg-white p-6 rounded-lg shadow-md mb-6 border border-gray-200"
         >
-          {/* Header Row */}
+          
           <div className="flex justify-between items-center">
             <div>
               <h2 className="text-xl font-semibold mb-1">{proj.title}</h2>
@@ -152,10 +139,10 @@ const MyProjects = () => {
             </button>
           </div>
 
-          {/* Expandable Section */}
+          
           {expandedProjects[proj._id] && (
             <div className="mt-4 border-t pt-4 transition-all duration-200 ease-in-out">
-              {/* Task Creation Form */}
+              
               <form
                 onSubmit={(e) => handleCreateTask(e, proj._id)}
                 className="mb-4"
@@ -226,7 +213,6 @@ const MyProjects = () => {
                 </div>
               </form>
 
-              {/* Task List */}
               {tasks[proj._id] && tasks[proj._id].length > 0 ? (
                 <table className="w-full border-collapse text-sm">
                   <thead>
@@ -241,7 +227,7 @@ const MyProjects = () => {
                   <tbody>
                     {tasks[proj._id].map((t) => (
                       <tr key={t._id} className="border-t">
-                        {/* 🟡 If Editing Mode */}
+                        
                         {editingTask === t._id ? (
                           <>
                             <td className="p-2">
@@ -302,7 +288,6 @@ const MyProjects = () => {
                           </>
                         ) : (
                           <>
-                            {/* 🟢 View Mode */}
                             <td className="p-2">{t.title}</td>
                             <td className="p-2">{t.assignedTo?.name}</td>
                             <td className="p-2 capitalize">{t.status}</td>
