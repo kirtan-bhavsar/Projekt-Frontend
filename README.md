@@ -1,16 +1,62 @@
-# React + Vite
+# Projekt — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Projekt** is a role-based project & task management frontend built with React (Vite) and TailwindCSS.  
+This repository contains the UI layer that talks to the Projekt backend API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Tech Stack
 
-## React Compiler
+- **React** (Vite) — fast development + production builds  
+- **Tailwind CSS** — utility-first styling  
+- **Axios** — HTTP client for API communication  
+- **React Router** (v6) — routing  
+- **React Context API** — authentication & global state  
+- **@hello-pangea/dnd** — drag-and-drop Kanban (task board)  
+- **react-hot-toast** — toast notifications
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+##  Roles
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The app supports three user roles with distinct capabilities:
+
+- **Admin**  
+- **Project Manager (PM)**  
+- **Developer**
+
+---
+
+##  What each role can do
+
+### 1) Admin
+- Create, edit and delete **projects**.
+- Create **Project Manager** and **Developer** accounts.
+- Assign a Project Manager to a project.
+- View all ongoing and completed projects in an overview.
+- Access user management UI to manage PM and Developer accounts.
+
+### 2) Project Manager (PM)
+- View projects assigned to them and open project details.
+- Create tasks under their projects and assign them to Developers or themselves.
+- Edit task metadata (title, due date, assignee) with restrictions:
+  - Cannot reassign a task if it is already `ongoing`.
+  - Cannot modify a `completed` task.
+- Delete tasks only if they are `pending` or `completed` (cannot delete `ongoing` tasks).
+- Use the Kanban board (drag & drop) to move tasks through statuses:
+  - `pending` → `ongoing` → `completed` (transitions enforced).
+- See quick visual indicators for overdue tasks and status breakdowns.
+
+### 3) Developer
+- View projects and tasks that are assigned to them.
+- Update their assigned task status via the Kanban board (drag & drop).
+- Edit their own task’s title or due date (restrictions apply: e.g., cannot reassign).
+- Track overdue tasks and progress on personal task lists.
+
+---
+
+## Thank you
+
+Thanks for checking out the Projekt frontend.  
+
+---
